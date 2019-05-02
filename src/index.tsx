@@ -35,7 +35,7 @@ const getIntersectionObserver = (
 export const Limgin: React.FunctionComponent<Props> = ({ lowSrc, highSrc, options = {}, alt, style }) => {
   const { once, ...opts } = options;
   const optsRef = React.useRef(opts);
-  const ref = React.useRef<HTMLImageElement>(null);
+  const ref = React.useRef<HTMLElement>(null);
   const [isIntersecting, setIntersecting] = React.useState(false);
 
   React.useEffect(() => {
@@ -46,14 +46,14 @@ export const Limgin: React.FunctionComponent<Props> = ({ lowSrc, highSrc, option
 
   React.useEffect(() => {
     const observer = getIntersectionObserver(optsRef, (entry) => {
-      setIntersecting(entry.isIntersecting);
-
-      if (!entry.isIntersecting || isIntersecting) {
+      if (!entry.isIntersecting) {
         return;
       }
 
       if (entry.intersectionRatio !== 0) {
-        const t = entry.target as HTMLImageElement;
+        setIntersecting(true);
+
+        const t = entry.target.children[0] as HTMLImageElement;
         let highSrcLoaded = false;
         t.onload = () => {
           if (!highSrcLoaded) {
@@ -82,5 +82,5 @@ export const Limgin: React.FunctionComponent<Props> = ({ lowSrc, highSrc, option
     };
   }, [optsRef.current]);
 
-  return <img alt={alt} ref={ref} style={style} />;
+  return <figure ref={ref}>{isIntersecting ? <img alt={alt} style={style} /> : null}</figure>;
 };

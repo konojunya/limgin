@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "predev": "yarn upgrade limgin",
+    "dev": "next"
+  },
+  "dependencies": {
+    "@zeit/next-typescript": "^1.1.1",
+    "limgin": "file:../../lib",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.15"
+  }
+}

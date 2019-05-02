@@ -1,7 +1,7 @@
 {
   "name": "limgin",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "repository": "ssh://git@github.com/konojunya/limgin.git",
   "author": "konojunya <junya03dance@gmail.com>",
   "license": "MIT",

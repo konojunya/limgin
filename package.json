@@ -15,7 +15,7 @@
     "build:watch": "yarn build --watch"
   },
   "devDependencies": {
-    "@types/react": "16.8.8",
+    "@types/react": "16.8.17",
     "@types/shallowequal": "^1.1.1",
     "eslint": "5.15.3",
     "eslint-config-prettier": "4.1.0",
